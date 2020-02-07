@@ -1,0 +1,15 @@
+Cutlets = read.csv(file.choose())
+Cutlets
+attach(Cutlets)
+shapiro.test(Unit.A)
+attach(Cutlets)
+shapiro.test(Unit.B)
+install.packages("ggpubr")
+library("ggpubr")
+ggdensity(Cutlets$Unit.A,main = "density plot of unitA", xlab = "Unit.A")
+ggdensity(Cutlets$Unit.B,main = "density plot of unitb", xlab = "Unit.b")
+ggqqplot(Cutlets$Unit.A)
+ggqqplot(Cutlets$Unit.B)
+var.test(Cutlets$Unit.A,Cutlets$Unit.B)
+t.test(Cutlets$Unit.A,Cutlets$Unit.B ,alternative ="two.sided" ,conf.level = 0.95,correct = TRUE )
+
